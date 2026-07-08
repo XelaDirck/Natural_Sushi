@@ -1,0 +1,14 @@
+# Config real (contiene credenciales)
+/config.php
+
+# Logs
+*.log
+
+# Uploads generados en runtime
+/assets/img/uploads/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

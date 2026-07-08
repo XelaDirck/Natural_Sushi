@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel administrativo — Natural Sushi</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<!-- LOGIN VIEW -->
+<div id="loginView" class="ns-login">
+  <form class="ns-login__card" id="loginForm">
+    <div class="brand-mark">🍃</div>
+    <h2>Iniciar sesión</h2>
+
+    <div id="loginError"></div>
+
+    <div class="ns-form">
+      <div>
+        <label for="username">Usuario</label>
+        <input type="text" id="username" required autocomplete="username">
+      </div>
+      <div>
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="ns-btn ns-btn--primary ns-btn--full ns-btn--lg" style="margin-top:8px;">
+        Iniciar sesión
+      </button>
+    </div>
+
+    <p style="text-align:center; margin-top:20px; font-size:12px; color:var(--text-muted);">
+      <a href="index.html" style="color:var(--green);">← Volver al sitio</a>
+    </p>
+  </form>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminView" class="ns-admin ns-hidden">
+  <aside class="ns-sidebar">
+    <div class="ns-sidebar__brand">
+      <span class="ns-brand__mark">🍃</span>
+      <div>
+        <div style="font-weight:700; font-size:14px;">NATURAL SUSHI</div>
+        <div style="font-size:10px; letter-spacing:2px; color:var(--text-muted);">ADMIN</div>
+      </div>
+    </div>
+
+    <button class="ns-sidebar__link active" data-tab="products">📦 Productos</button>
+    <button class="ns-sidebar__link" data-tab="categories">📁 Categorías</button>
+    <button class="ns-sidebar__link" data-tab="settings">⚙️ Configuración</button>
+    <button class="ns-sidebar__link" id="logoutBtn" style="margin-top:20px; color:var(--danger);">↩ Cerrar sesión</button>
+  </aside>
+
+  <main class="ns-panel">
+    <!-- PRODUCTOS -->
+    <div id="tab-products">
+      <div class="ns-panel__header">
+        <h1>Productos</h1>
+        <button class="ns-btn ns-btn--primary" id="btnNewProduct">+ Nuevo producto</button>
+      </div>
+
+      <div id="productsAlert"></div>
+
+      <table class="ns-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="productsTable">
+          <tr><td colspan="6"><div class="ns-loader"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <div id="tab-categories" class="ns-hidden">
+      <div class="ns-panel__header">
+        <h1>Categorías</h1>
+        <button class="ns-btn ns-btn--primary" id="btnNewCategory">+ Nueva categoría</button>
+      </div>
+
+      <div id="categoriesAlert"></div>
+
+      <table class="ns-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Slug</th>
+            <th>Orden</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="categoriesTable">
+          <tr><td colspan="5"><div class="ns-loader"></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CONFIGURACIÓN -->
+    <div id="tab-settings" class="ns-hidden">
+      <div class="ns-panel__header">
+        <h1>Configuración del negocio</h1>
+      </div>
+      <p style="color:var(--text-muted);">Los datos generales del restaurante se editan directamente en la tabla <code>settings</code> de la base de datos o extendiendo este panel.</p>
+    </div>
+  </main>
+</div>
+
+<!-- MODAL producto -->
+<div class="ns-modal-backdrop" id="productModal" hidden>
+  <form class="ns-modal" id="productForm">
+    <h3 id="productModalTitle">Nuevo producto</h3>
+    <input type="hidden" id="pId">
+    <div class="ns-form">
+      <div>
+        <label for="pName">Nombre</label>
+        <input type="text" id="pName" required maxlength="120">
+      </div>
+      <div>
+        <label for="pCategory">Categoría</label>
+        <select id="pCategory" class="ns-form__input" style="padding:12px 14px; background:var(--bg-2); border:1px solid var(--border-2); color:var(--text); border-radius:var(--r-md); width:100%; font-family:inherit; font-size:14px;"></select>
+      </div>
+      <div>
+        <label for="pPrice">Precio</label>
+        <input type="number" id="pPrice" required step="0.01" min="0">
+      </div>
+      <div>
+        <label for="pEmoji">Emoji (placeholder visual)</label>
+        <input type="text" id="pEmoji" maxlength="4" placeholder="🍣">
+      </div>
+      <div>
+        <label for="pImage">URL de imagen (opcional)</label>
+        <input type="url" id="pImage" maxlength="255">
+      </div>
+      <div>
+        <label for="pDesc">Descripción</label>
+        <textarea id="pDesc" maxlength="400"></textarea>
+      </div>
+      <div style="display:flex; gap:16px;">
+        <label style="display:flex; align-items:center; gap:8px; text-transform:none; letter-spacing:0;">
+          <input type="checkbox" id="pActive" checked> Activo
+        </label>
+        <label style="display:flex; align-items:center; gap:8px; text-transform:none; letter-spacing:0;">
+          <input type="checkbox" id="pFeatured"> Destacado
+        </label>
+      </div>
+      <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:8px;">
+        <button type="button" class="ns-btn ns-btn--ghost" data-close="productModal">Cancelar</button>
+        <button type="submit" class="ns-btn ns-btn--primary">Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- MODAL categoría -->
+<div class="ns-modal-backdrop" id="categoryModal" hidden>
+  <form class="ns-modal" id="categoryForm">
+    <h3 id="categoryModalTitle">Nueva categoría</h3>
+    <input type="hidden" id="cId">
+    <div class="ns-form">
+      <div>
+        <label for="cName">Nombre</label>
+        <input type="text" id="cName" required maxlength="80">
+      </div>
+      <div>
+        <label for="cOrder">Orden</label>
+        <input type="number" id="cOrder" value="0">
+      </div>
+      <label style="display:flex; align-items:center; gap:8px; text-transform:none; letter-spacing:0;">
+        <input type="checkbox" id="cActive" checked> Activa
+      </label>
+      <div style="display:flex; gap:8px; justify-content:flex-end;">
+        <button type="button" class="ns-btn ns-btn--ghost" data-close="categoryModal">Cancelar</button>
+        <button type="submit" class="ns-btn ns-btn--primary">Guardar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/admin.js"></script>
+</body>
+</html>

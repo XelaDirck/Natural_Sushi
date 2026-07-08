@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Natural Sushi</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<section class="ns-section ns-container">
+  <div style="text-align:center;">
+    <h1 class="ns-title">Contáctanos</h1>
+    <div class="ns-title__accent"><span class="leaf">🍃</span></div>
+  </div>
+
+  <div class="ns-contact">
+    <!-- Info -->
+    <div class="ns-contact-info">
+      <h2>Ponte en contacto</h2>
+
+      <div class="ns-contact-item">
+        <svg class="ns-contact-item__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <strong>Dirección</strong>
+          <span id="cAddress">Av. Principal #123, Ciudad de México</span>
+        </div>
+      </div>
+
+      <div class="ns-contact-item">
+        <svg class="ns-contact-item__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <div>
+          <strong>Teléfono</strong>
+          <span id="cPhone">55 1234 5678</span>
+        </div>
+      </div>
+
+      <div class="ns-contact-item">
+        <svg class="ns-contact-item__icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.67.15c-.197.297-.767.966-.94 1.164c-.173.199-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52c.149-.174.198-.298.298-.497c.099-.198.05-.371-.025-.52c-.075-.149-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074c.149.198 2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.625c.712.227 1.36.195 1.871.118c.571-.085 1.758-.719 2.006-1.413c.248-.694.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.83 9.83 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.8 11.8 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.9 11.9 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.8 11.8 0 0 0-3.48-8.413"/></svg>
+        <div>
+          <strong>WhatsApp</strong>
+          <span id="cWa">55 8765 4321</span>
+        </div>
+      </div>
+
+      <div class="ns-contact-item">
+        <svg class="ns-contact-item__icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <div>
+          <strong>Horarios</strong>
+          <span id="cHours">Lun - Dom: 12:00 pm - 11:00 pm</span>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="color:var(--text-muted); font-size:11px; letter-spacing:2px; text-transform:uppercase; margin:24px 0 12px;">Síguenos</h4>
+        <div class="ns-social">
+          <a href="#" id="sFb"  aria-label="Facebook">f</a>
+          <a href="#" id="sIg"  aria-label="Instagram">📷</a>
+          <a href="#" id="sTk"  aria-label="TikTok">♪</a>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <form class="ns-form" id="contactForm">
+        <div>
+          <label for="fName">Tu nombre</label>
+          <input type="text" id="fName" required maxlength="80">
+        </div>
+        <div>
+          <label for="fEmail">Correo electrónico</label>
+          <input type="email" id="fEmail" required maxlength="120">
+        </div>
+        <div>
+          <label for="fMsg">Mensaje</label>
+          <textarea id="fMsg" required maxlength="500"></textarea>
+        </div>
+        <button type="submit" class="ns-btn ns-btn--primary">Enviar mensaje</button>
+        <div id="fResult"></div>
+      </form>
+    </div>
+
+    <!-- Mapa -->
+    <div class="ns-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.0668823047906!2d-99.13320882476611!3d19.432608241773925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35f5bd1563%3A0x6c366f0e2de02ff7!2sZ%C3%B3calo!5e0!3m2!1ses!2smx!4v1700000000000"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="ns-map__cta">
+        <a href="#" id="mapsCta" class="ns-btn ns-btn--primary ns-btn--full">
+          Abrir en Google Maps ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/contacto.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu pedido — Natural Sushi</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<section class="ns-section ns-container">
+  <div style="text-align:center;">
+    <h1 class="ns-title">Tu pedido</h1>
+    <div class="ns-title__accent"><span class="leaf">🍃</span></div>
+  </div>
+
+  <div class="ns-cart" id="cartWrap">
+    <!-- Lado izquierdo: lista -->
+    <div>
+      <div class="ns-cart-list" id="cartList">
+        <div class="ns-cart-head" style="display:grid; grid-template-columns:60px 1fr 130px 90px 30px; gap:16px;">
+          <div></div>
+          <div>Producto</div>
+          <div>Cantidad</div>
+          <div>Total</div>
+          <div></div>
+        </div>
+        <div id="cartRows"></div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <a href="menu.html" class="ns-btn ns-btn--ghost">← Seguir comprando</a>
+      </div>
+    </div>
+
+    <!-- Lado derecho: resumen -->
+    <aside class="ns-summary">
+      <h3>Resumen del pedido</h3>
+      <div class="ns-summary__row">
+        <span>Subtotal</span>
+        <span id="sumSubtotal">$0</span>
+      </div>
+      <div class="ns-summary__row">
+        <span>Envío</span>
+        <span style="color:var(--green);">Gratis</span>
+      </div>
+      <div class="ns-summary__row ns-summary__row--total">
+        <span>TOTAL</span>
+        <span class="amount" id="sumTotal">$0</span>
+      </div>
+
+      <button class="ns-btn ns-btn--primary ns-btn--full ns-btn--lg" id="btnWhatsApp" style="margin-top:20px; background:#22C55E; color:white;">
+        💬 Enviar pedido por WhatsApp
+      </button>
+
+      <div class="ns-payment-note">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span>Pago en local o al recibir tu pedido</span>
+      </div>
+    </aside>
+  </div>
+
+  <div class="ns-cart-empty ns-hidden" id="cartEmpty">
+    <div class="ns-cart-empty__icon">🛒</div>
+    <h3>Tu carrito está vacío</h3>
+    <p>Agrega productos desde el menú para comenzar tu pedido.</p>
+    <a href="menu.html" class="ns-btn ns-btn--primary" style="margin-top:12px;">Ir al menú</a>
+  </div>
+</section>
+
+<div id="footer"></div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/cart.js"></script>
+</body>
+</html>

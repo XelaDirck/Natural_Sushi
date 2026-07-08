@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú — Natural Sushi</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<section class="ns-section ns-container">
+  <div style="text-align:center;">
+    <h1 class="ns-title">Nuestro menú</h1>
+    <div class="ns-title__accent"><span class="leaf">🍃</span></div>
+  </div>
+
+  <div class="ns-search">
+    🔍
+    <input type="search" id="menuSearch" placeholder="Buscar platillo...">
+  </div>
+
+  <div class="ns-cat-tabs" id="catTabs">
+    <button class="ns-cat-tab active" data-cat="all">Todos</button>
+    <!-- categorías se cargan por JS -->
+  </div>
+
+  <div class="ns-products" id="products">
+    <div class="ns-loader"></div>
+  </div>
+</section>
+
+<div id="footer"></div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/menu.js"></script>
+</body>
+</html>

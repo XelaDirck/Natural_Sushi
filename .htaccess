@@ -1,0 +1,11 @@
+# Bloquear acceso a archivos sensibles
+<FilesMatch "^(config\.php|\.htaccess|\.gitignore)$">
+  Require all denied
+</FilesMatch>
+
+# Bloquear listado de directorios
+Options -Indexes
+
+# Bloquear acceso directo a las carpetas app/ y database/
+RedirectMatch 403 ^/app/.*$
+RedirectMatch 403 ^/database/.*$
