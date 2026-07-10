@@ -5,10 +5,11 @@
 
 :root {
   /* Colores */
-  --bg:          #0A0F0C;
+  --bg:          #000000;
   --bg-2:        #0F1613;
   --surface:     #131A15;
   --surface-2:   #1A231D;
+  --gray-black:   #100f14;
   --border:      rgba(255, 255, 255, 0.07);
   --border-2:    rgba(255, 255, 255, 0.12);
 
@@ -85,38 +86,61 @@ body {
   letter-spacing: 0.5px;
 }
 .ns-brand__mark {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  border: 2px solid var(--green);
-  display: grid;
-  place-items: center;
-  color: var(--green);
-  font-size: 18px;
+  width: auto;
+  height: 65px;
+  display: block;
+  object-fit:contain;
+  
 }
 .ns-brand__name { font-size: 18px; line-height: 1; }
 .ns-brand__tag  { font-size: 10px; letter-spacing: 3px; color: var(--text-muted); }
 .ns-nav {
   display: flex;
-  gap: 28px;
-  margin-left: auto;
+  gap: 14px;                    
+  flex: 1;
+  justify-content: center;
   font-size: 13px;
   letter-spacing: 1.5px;
   font-weight: 500;
 }
+
 .ns-nav a {
   color: var(--text-muted);
-  padding: 6px 2px;
-  border-bottom: 2px solid transparent;
-  transition: color .15s, border-color .15s;
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 22px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 
+    box-shadow .1s ease,
+    transform .1s ease,
+    background-color .3s ease,
+    color .15s ease;
 }
-.ns-nav a:hover { color: var(--text); }
+
+.ns-nav a:hover {
+  color: var(--text);
+  box-shadow: 
+    0 6px 0 var(--green-3),
+    0 8px 10px rgba(0, 0, 0, 0.47);
+}
+
+.ns-nav a:active {
+  box-shadow: 
+    0 2px 0 var(--green),
+    0 3px 6px rgba(0, 0, 0, 0.47);
+  transform: translateY(4px);
+}
+
 .ns-nav a.active {
   color: var(--green);
-  border-bottom-color: var(--green);
+  background-color: var(--green-soft);
+  box-shadow: 0 4px 0 var(--green-3);
 }
 .ns-nav-actions {
   display: flex;
-  align-items: center;
+  align-items: right;
   gap: 12px;
 }
 .ns-cart-btn, .ns-wa-btn {
@@ -268,6 +292,7 @@ body {
 /* Feature bar */
 .ns-features {
   display: grid;
+  background-color: var(--gray-black);
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   padding: 32px 24px;
